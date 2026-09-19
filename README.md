@@ -20,13 +20,24 @@ Choose **Use this template** to create your own repository. Change the `repo` va
 button to the new GitHub URL. After selecting an Appwrite project, EdgeZ applies the complete
 configuration and queues all function and Site builds automatically.
 
-The same configuration can be applied from CI or a terminal with the Appwrite CLI after replacing
-`<PROJECT_ID>`:
+The deploy button, CI, and Codex should all use the same deterministic Appwrite
+CLI engine. The script never asks AI to interpret the manifest. It validates
+the plan, compares Git configuration with the selected Appwrite project, and
+applies the checked-in configuration in a fixed order.
 
 ```sh
-appwrite client --endpoint https://appwrite.edgez.ai/v1 --project-id "$APPWRITE_PROJECT_ID" --key "$APPWRITE_API_KEY"
-appwrite push all --all --force
+export APPWRITE_PROJECT_ID="<PROJECT_ID>"
+export APPWRITE_API_KEY="<API_KEY>"
+scripts/deploy-appwrite.sh plan
+scripts/deploy-appwrite.sh compare
+scripts/deploy-appwrite.sh apply
 ```
+
+`apply` refuses a dirty worktree by default and writes a local, ignored receipt
+under `.edgez/deployments/` containing the Git commit, config SHA-256, target
+project, timestamp, and Appwrite CLI version. Commit the config itself for
+version control; use `compare` in CI to fail on remote drift. Set
+`EDGEZ_ALLOW_DIRTY=true` only for an intentional development deployment.
 
 ## Run locally
 
