@@ -1,6 +1,7 @@
 {
   "version": 1,
   "name": "edgez-project",
+  "appwriteConfig": "appwrite.config.json",
   "deployments": [
     {
       "id": "web",

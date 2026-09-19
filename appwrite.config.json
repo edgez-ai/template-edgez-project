@@ -1,0 +1,81 @@
+{
+  "projectId": "<PROJECT_ID>",
+  "endpoint": "https://appwrite.edgez.ai/v1",
+  "tablesDB": [
+    {
+      "$id": "main",
+      "name": "Main",
+      "enabled": true
+    }
+  ],
+  "tables": [
+    {
+      "$id": "messages",
+      "databaseId": "main",
+      "name": "Messages",
+      "permissions": ["create(\"any\")", "read(\"any\")"],
+      "rowSecurity": false,
+      "enabled": true,
+      "columns": [
+        {
+          "key": "message",
+          "type": "varchar",
+          "size": 255,
+          "required": true,
+          "array": false
+        }
+      ],
+      "indexes": []
+    }
+  ],
+  "buckets": [
+    {
+      "$id": "uploads",
+      "name": "Uploads",
+      "permissions": ["create(\"any\")", "read(\"any\")"],
+      "fileSecurity": false,
+      "enabled": true,
+      "maximumFileSize": 10485760,
+      "allowedFileExtensions": [],
+      "compression": "none",
+      "encryption": true,
+      "antivirus": true,
+      "transformations": true
+    }
+  ],
+  "functions": [
+    {
+      "$id": "hello-world",
+      "name": "Hello World",
+      "runtime": "node-24",
+      "path": "functions/hello-world",
+      "entrypoint": "src/main.js",
+      "commands": "npm install",
+      "execute": ["any"],
+      "events": [],
+      "schedule": "",
+      "timeout": 15,
+      "enabled": true,
+      "logging": true,
+      "scopes": [],
+      "vars": []
+    }
+  ],
+  "sites": [
+    {
+      "$id": "web",
+      "name": "EdgeZ Project",
+      "framework": "nextjs",
+      "buildRuntime": "node-24",
+      "adapter": "static",
+      "path": "site",
+      "enabled": true,
+      "logging": true,
+      "timeout": 30,
+      "installCommand": "npm ci",
+      "buildCommand": "npm run build",
+      "outputDirectory": "out",
+      "vars": []
+    }
+  ]
+}

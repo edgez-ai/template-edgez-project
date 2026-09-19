@@ -7,17 +7,26 @@ A reusable multi-platform EdgeZ starter that displays **Hello World** in three p
 - `firmware/` — Heltec WiFi LoRa 32 V3 firmware for the onboard OLED
 
 [![Use this template](https://img.shields.io/badge/Use%20this-template-238636?style=for-the-badge&logo=github)](https://github.com/new?template_name=template-edgez-project&template_owner=edgez-ai)
-[![Deploy on EdgeZ](https://img.shields.io/badge/Deploy%20on-EdgeZ-6c5ce7?style=for-the-badge)](https://appwrite.edgez.ai/console/deploy)
+[![Deploy on EdgeZ](https://img.shields.io/badge/Deploy%20on-EdgeZ-6c5ce7?style=for-the-badge)](https://appwrite.edgez.ai/console/deploy?repo=https%3A%2F%2Fgithub.com%2Fedgez-ai%2Ftemplate-edgez-project)
 
 Open `hello-world-simple.code-workspace` in VS Code to work with all three
 projects together.
 
-The root [`edgez.json`](edgez.json) is the shared EdgeZ project manifest. It declares the
-deployable web site and records the mobile and firmware workspace locations. The deploy button
-uses this file, so its URL only needs the GitHub repository address.
+The root [`edgez.json`](edgez.json) identifies the EdgeZ project and points to
+[`appwrite.config.json`](appwrite.config.json). The Appwrite configuration is the infrastructure
+plan for the complete solution: databases and tables, storage buckets, functions, and Sites.
 
-Choose **Use this template** to create your own repository. In that repository, choose **Deploy on
-EdgeZ** and paste its GitHub URL; EdgeZ reads the deployment settings from `edgez.json`.
+Choose **Use this template** to create your own repository. Change the `repo` value in its deploy
+button to the new GitHub URL. After selecting an Appwrite project, EdgeZ applies the complete
+configuration and queues all function and Site builds automatically.
+
+The same configuration can be applied from CI or a terminal with the Appwrite CLI after replacing
+`<PROJECT_ID>`:
+
+```sh
+appwrite client --endpoint https://appwrite.edgez.ai/v1 --project-id "$APPWRITE_PROJECT_ID" --key "$APPWRITE_API_KEY"
+appwrite push all --all --force
+```
 
 ## Run locally
 

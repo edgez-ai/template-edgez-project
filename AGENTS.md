@@ -17,6 +17,8 @@ other product behavior unless explicitly requested.
 | `app/` | Expo + React Native app |
 | `firmware/` | PlatformIO + ESP-IDF Heltec OLED firmware |
 | `edgez.json` | EdgeZ deployment and workspace manifest |
+| `appwrite.config.json` | Declarative Appwrite infrastructure and code deployment plan |
+| `functions/` | Appwrite Functions deployed with the solution |
 | `README.md` | Setup and validation guide |
 
 ## Validation
