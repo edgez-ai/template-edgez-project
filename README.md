@@ -1,12 +1,13 @@
-# Hello World Simple
+# EdgeZ Project Template
 
-A minimal multi-platform starter that displays **Hello World** in three places:
+A reusable multi-platform EdgeZ starter that displays **Hello World** in three places:
 
 - `site/` — a Next.js web page
 - `app/` — an Expo + React Native app
 - `firmware/` — Heltec WiFi LoRa 32 V3 firmware for the onboard OLED
 
-[![Deploy on EdgeZ](https://img.shields.io/badge/Deploy%20on-EdgeZ-6c5ce7?style=for-the-badge)](https://appwrite.edgez.ai/deploy?repo=https%3A%2F%2Fgithub.com%2Fedgez-ai%2Ftemplate-hello-world-simple)
+[![Use this template](https://img.shields.io/badge/Use%20this-template-238636?style=for-the-badge&logo=github)](https://github.com/new?template_name=template-edgez-project&template_owner=edgez-ai)
+[![Deploy on EdgeZ](https://img.shields.io/badge/Deploy%20on-EdgeZ-6c5ce7?style=for-the-badge)](https://appwrite.edgez.ai/deploy)
 
 Open `hello-world-simple.code-workspace` in VS Code to work with all three
 projects together.
@@ -14,6 +15,9 @@ projects together.
 The root [`edgez.json`](edgez.json) is the shared EdgeZ project manifest. It declares the
 deployable web site and records the mobile and firmware workspace locations. The deploy button
 uses this file, so its URL only needs the GitHub repository address.
+
+Choose **Use this template** to create your own repository. In that repository, choose **Deploy on
+EdgeZ** and paste its GitHub URL; EdgeZ reads the deployment settings from `edgez.json`.
 
 ## Run locally
 

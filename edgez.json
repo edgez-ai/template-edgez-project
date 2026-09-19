@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "name": "hello-world-simple",
+  "name": "edgez-project",
   "deployments": [
     {
       "id": "web",
