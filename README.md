@@ -7,7 +7,7 @@ A reusable multi-platform EdgeZ starter that displays **Hello World** in three p
 - `firmware/` — Heltec WiFi LoRa 32 V3 firmware for the onboard OLED
 
 [![Use this template](https://img.shields.io/badge/Use%20this-template-238636?style=for-the-badge&logo=github)](https://github.com/new?template_name=template-edgez-project&template_owner=edgez-ai)
-[![Deploy on EdgeZ](https://img.shields.io/badge/Deploy%20on-EdgeZ-6c5ce7?style=for-the-badge)](https://appwrite.edgez.ai/deploy)
+[![Deploy on EdgeZ](https://img.shields.io/badge/Deploy%20on-EdgeZ-6c5ce7?style=for-the-badge)](https://appwrite.edgez.ai/console/deploy)
 
 Open `hello-world-simple.code-workspace` in VS Code to work with all three
 projects together.
