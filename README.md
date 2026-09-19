@@ -20,24 +20,31 @@ Choose **Use this template** to create your own repository. Change the `repo` va
 button to the new GitHub URL. After selecting an Appwrite project, EdgeZ applies the complete
 configuration and queues all function and Site builds automatically.
 
-The deploy button, CI, and Codex should all use the same deterministic Appwrite
-CLI engine. The script never asks AI to interpret the manifest. It validates
+The deploy button, CI, and Codex should all use the same deterministic Node.js
+engine in `infra/`. It invokes a pinned Appwrite CLI and never asks AI to
+interpret the manifest. It validates
 the plan, compares Git configuration with the selected Appwrite project, and
 applies the checked-in configuration in a fixed order.
 
 ```sh
 export APPWRITE_PROJECT_ID="<PROJECT_ID>"
 export APPWRITE_API_KEY="<API_KEY>"
-scripts/deploy-appwrite.sh plan
-scripts/deploy-appwrite.sh compare
-scripts/deploy-appwrite.sh apply
+cd infra
+npm install
+npm run plan
+npm run compare
+npm run install:solution
 ```
 
-`apply` refuses a dirty worktree by default and writes a local, ignored receipt
+`install` refuses a dirty worktree by default and writes a local, ignored receipt
 under `.edgez/deployments/` containing the Git commit, config SHA-256, target
 project, timestamp, and Appwrite CLI version. Commit the config itself for
 version control; use `compare` in CI to fail on remote drift. Set
-`EDGEZ_ALLOW_DIRTY=true` only for an intentional development deployment.
+`EDGEZ_ALLOW_DIRTY=true` only for an intentional development deployment. To
+remove only the resources declared by this solution, preview
+`INFRA_DRY_RUN=1 npm run uninstall:solution`, then run
+`npm run uninstall:solution` with explicit authorization. Users and unrelated
+project resources are preserved.
 
 ## Run locally
 
