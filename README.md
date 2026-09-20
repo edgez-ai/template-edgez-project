@@ -16,9 +16,9 @@ The root [`edgez.json`](edgez.json) identifies the EdgeZ project and points to
 [`appwrite.config.json`](appwrite.config.json). The Appwrite configuration is the infrastructure
 plan for the complete solution: databases and tables, storage buckets, functions, and Sites.
 
-Choose **Use this template** to create your own repository. Change the `repo` value in its deploy
-button to the new GitHub URL. After selecting an Appwrite project, EdgeZ applies the complete
-configuration and queues all function and Site builds automatically.
+Choose **Use this template** to create your own repository. Its default-branch workflow updates the
+deploy button to the new GitHub URL automatically. After selecting an Appwrite project, EdgeZ
+applies the complete configuration and queues all function and Site builds automatically.
 
 The deploy button, CI, and Codex should all use the same deterministic Node.js
 engine in `infra/`. It invokes a pinned Appwrite CLI and never asks AI to
