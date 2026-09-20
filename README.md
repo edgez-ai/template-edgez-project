@@ -15,6 +15,8 @@ projects together.
 The root [`edgez.json`](edgez.json) identifies the EdgeZ project and points to
 [`appwrite.config.json`](appwrite.config.json). The Appwrite configuration is the infrastructure
 plan for the complete solution: databases and tables, storage buckets, functions, and Sites.
+The `buildInstance` field accepts `tiny`, `small`, `medium`, or `large`; this template defaults to
+`tiny` for all Site and Function builds.
 
 Choose **Use this template** to create your own repository. Its default-branch workflow updates the
 deploy button to the new GitHub URL automatically. After selecting an Appwrite project, EdgeZ
